@@ -7,6 +7,7 @@ public class UserRequestModel {
     private String surname;
     private String email;
     private UserRole role;
+    private int schoolId;
 
     public String getName() {
         return name;
@@ -20,4 +21,5 @@ public class UserRequestModel {
     public UserRole getRole() {
         return role;
     }
+    public int getSchoolId() { return schoolId; }
 }

@@ -12,6 +12,10 @@ public class ClassOfSchool {
     private String name;
     private Status status;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="schoolId", nullable=false)
+    private School school;
+
     public Integer getId() {
         return id;
     }
@@ -19,6 +23,7 @@ public class ClassOfSchool {
         return name;
     }
     public Status getStatus() { return status; }
+    public School getSchool() { return school; }
 
     public void setId(Integer id) {
         this.id = id;
@@ -27,4 +32,5 @@ public class ClassOfSchool {
         this.name = name;
     }
     public void setStatus(Status status) { this.status = status; }
+    public void setSchool(School school) { this.school = school; }
 }

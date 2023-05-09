@@ -16,6 +16,10 @@ public class User {
     private UserRole role;
     private Status status;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="schoolId", nullable=false)
+    private School school;
+
     public Integer getId() {
         return id;
     }
@@ -28,6 +32,8 @@ public class User {
     }
     public UserRole getRole() { return role; }
     public Status getStatus() { return status; }
+    public School getSchool() { return school; }
+
 
     public void setId(Integer id) {
         this.id = id;
@@ -41,4 +47,5 @@ public class User {
     }
     public void setRole(UserRole role) { this.role = role; }
     public void setStatus(Status status) { this.status = status; }
+    public void setSchool(School school) { this.school = school; }
 }
