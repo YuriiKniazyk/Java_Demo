@@ -3,6 +3,7 @@ package com.yuriikniazyk.demo.controllers;
 import com.yuriikniazyk.demo.db.entities.User;
 import com.yuriikniazyk.demo.models.UserRequestModel;
 import com.yuriikniazyk.demo.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ public class UserController {
     private UserService userService = new UserService();
 
     @PostMapping()
-    public @ResponseBody Integer addNewUser (@RequestBody UserRequestModel userRequestModel) throws Exception {
+    public @ResponseBody Integer addNewUser (@RequestBody @Valid UserRequestModel userRequestModel) throws Exception {
         try {
             return userService.createUser(userRequestModel);
         } catch (Exception e) {
